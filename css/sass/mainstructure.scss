@@ -1,3 +1,7 @@
+body {
+	background: #0daaff;
+}
+
 div.containter {
 	
 }
@@ -12,4 +16,34 @@ section {
 
 aside {
 	
+}
+
+
+input, #button {
+	width: 75%;
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	margin-left: -42.5%;
+	margin-top: -42.5%;
+}
+
+input {
+	left: 50%;
+	top: 35%;
+	border: none;
+	background: #eee;
+	padding: .5em 5%; 
+	font-family: 'SourceSansProLight';
+	font-size: 3em;
+	text-align: center;
+}
+
+#button {
+	border: none;
+	background: #eee;
+	padding: 1em 5%; 
+	display: block;
+	text-align: center;
+	font-family: 'SourceSansProLight';
 }
