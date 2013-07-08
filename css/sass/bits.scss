@@ -1,0 +1,13 @@
+/** Variables **/
+
+/** Mixins **/
+
+
+/** Linking all .scss together **/
+
+@import 'reset';/** Important reset must go first **/
+@import 'typgraphy';
+@import 'mainstructure';
+@import 'mainnav';
+@import 'header';
+@import 'footer';
