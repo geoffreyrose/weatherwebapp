@@ -15,7 +15,7 @@ $(document).ready(function() {
 				html += '<ul><li>'+weather.temp+'&deg;'+weather.units.temp+'</li>';
 				html += '<li>'+weather.tempAlt+'&deg;C</li>';
 				html += '<h3>'+"Today's Forcast"+'</h3>';
-				html += '<li class="high">'+"High "+weather.high+'</li>'+'<li class="low">'+"Low "+weather.low+'</li></ul>';
+				html += '<li class="high">'+"High "+weather.high+'&deg;F'+'</li>'+'<li class="low">'+"Low "+weather.low+'&deg;F'+'</li></ul>';
 				//html += '<h3 class="currently">'+weather.currently+'</h3>';
 				
 				$("#weather").html(html);
