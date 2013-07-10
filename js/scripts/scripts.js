@@ -10,7 +10,7 @@ $(document).ready(function() {
 			unit: 'f',
 			success: function(weather) {
 				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
-				html += '<img src="'+weather.image+'" />';
+				html += '<p>'+'<span class="weather-'+weather.code+'" >'+'</span>'+'</p>';
 				html += '<h2>'+"Current Temperature"+'</h2>';
 				html += '<ul><li>'+weather.temp+'&deg;'+weather.units.temp+'</li>';
 				html += '<li>'+weather.tempAlt+'&deg;C</li>';
