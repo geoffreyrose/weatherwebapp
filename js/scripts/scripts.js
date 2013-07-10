@@ -1,4 +1,17 @@
 $(document).ready(function() {
+function isiPhone(){
+    return (
+        //Detect iPhone
+    //var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        (navigator.platform.indexOf("iPhone") != -1) ||
+        //Detect iPod
+        (navigator.platform.indexOf("iPad") != -1)
+    );
+}
+
+if(isiPhone()){
+    $('p.ios').show();
+}	
 	$('.changeloc').hide();
 	$('#button').click(function(){
 		var zip = $('input').val();
@@ -11,10 +24,8 @@ $(document).ready(function() {
 			success: function(weather) {
 				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
 				html += '<p>'+'<span class="weather-'+weather.code+'" >'+'</span>'+'</p>';
-				html += '<h2>'+"Current Temperature"+'</h2>';
 				html += '<ul><li>'+weather.temp+'&deg;'+weather.units.temp+'</li>';
 				html += '<li>'+weather.tempAlt+'&deg;C</li>';
-				html += '<h3>'+"Today's Forcast"+'</h3>';
 				html += '<li class="high">'+"High "+weather.high+'&deg;F'+'</li>'+'<li class="low">'+"Low "+weather.low+'&deg;F'+'</li></ul>';
 				//html += '<h3 class="currently">'+weather.currently+'</h3>';
 				
