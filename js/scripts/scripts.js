@@ -1,17 +1,8 @@
 $(document).ready(function() {
-function isiPhone(){
-    return (
-        //Detect iPhone
-    //var isiPad = navigator.userAgent.match(/iPad/i) != null;
-        (navigator.platform.indexOf("iPhone") != -1) ||
-        //Detect iPod
-        (navigator.platform.indexOf("iPad") != -1)
-    );
-}
 
-if(isiPhone()){
-    $('p.ios').show();
-}	
+if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+   	$('p.ios').show();
+}
 	$('.changeloc').hide();
 	$('#button').click(function(){
 		var zip = $('input').val();
