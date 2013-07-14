@@ -16,7 +16,7 @@ if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi)
 				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
 				html += '<p>'+'<span class="weather-'+weather.code+'" >'+'</span>'+'</p>';
 				html += '<ul><li>'+weather.temp+'&deg;'+weather.units.temp+'</li>';
-				html += '<li>'+weather.tempAlt+'&deg;C</li>';
+				html += '<li>'+weather.currently+'</li>';
 				html += '<li class="high">'+"High "+weather.high+'&deg;F'+'</li>'+'<li class="low">'+"Low "+weather.low+'&deg;F'+'</li></ul>';
 				//html += '<h3 class="currently">'+weather.currently+'</h3>';
 				
