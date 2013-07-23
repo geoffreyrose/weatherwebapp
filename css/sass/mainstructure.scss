@@ -22,7 +22,7 @@ aside {
 }
 
 p.homeicon {
-	margin: -2em 0 0 0;
+	margin: -2em 0 -1em;
 }
 
 p span {
@@ -69,7 +69,7 @@ input.zip {
 	margin: 0 0 1em 0;
 }
 ul {
-	margin: 0 0 1em 0;
+	margin: 0 0 .5em 0;
 	float: left;
 	width: 100%;
 }
@@ -82,12 +82,9 @@ ul li {
 	float: left;
 	text-align: center;
 	color: #fff;
-	margin: .1em 0 .5em 0;
+	margin: .1em 0 .25em 0;
 }
 
-li.high {
-
-}
 
 hr {
 	display: block;
@@ -96,14 +93,26 @@ hr {
 	border: 0px ;
 }
 
-li.low {
-}
 
-.high, .low {
-	font-size: 2em;
-	color: #08446D;
-}
+
 
 .ios {
 	display: none;
+}
+
+
+ul.weatherforcast {
+
+	li {
+		width: 27%;
+		font-size: 1.1em;
+		color: #000;
+		text-align: right;
+		margin: .1em 3% .7em 3%
+	}
+
+	li:nth-of-type(3) {
+		text-align: left;
+	} 
+	
 }

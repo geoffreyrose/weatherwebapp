@@ -18,8 +18,9 @@ if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi)
 				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
 				html += '<p>'+'<span class="weather-'+weather.code+'" >'+'</span>'+'</p>';
 				html += '<ul><li>'+weather.temp+'&deg;'+weather.units.temp+'</li>';
-				html += '<li>'+weather.currently+'</li>';
-				html += '<li class="high">'+"High "+weather.high+'&deg;F'+'</li>'+'<li class="low">'+"Low "+weather.low+'&deg;F'+'</li></ul>';
+				html += '<li>'+weather.currently+'</li></ul>';
+				html += '<ul class="weatherforcast"><li>'+"Today"+'</li>'+'<li>'+"High "+weather.high+'&deg;F'+'</li>'+'<li>'+"Low "+weather.low+'&deg;F'+'</li></ul>';
+				html += '<ul class="weatherforcast"><li>'+"Tomorrow"+'</li>'+'<li>'+"High "+weather.tomorrow.high+'&deg;F'+'</li>'+'<li>'+"Low "+weather.tomorrow.low+'&deg;F'+'</li></ul>';
 				
 				$("#weather").html(html);
 				$("#weather2").html(html);
