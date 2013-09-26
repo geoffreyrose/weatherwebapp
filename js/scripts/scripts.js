@@ -1,4 +1,6 @@
+
 $(document).ready(function() {
+
 
 if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
    	$('p.ios').show();
@@ -21,6 +23,7 @@ if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi)
 				html += '<li>'+weather.currently+'</li></ul>';
 				html += '<ul class="weatherforcast"><li>'+"Today"+'</li>'+'<li>'+"High "+weather.high+'&deg;F'+'</li>'+'<li>'+"Low "+weather.low+'&deg;F'+'</li></ul>';
 				html += '<ul class="weatherforcast"><li>'+"Tomorrow"+'</li>'+'<li>'+"High "+weather.tomorrow.high+'&deg;F'+'</li>'+'<li>'+"Low "+weather.tomorrow.low+'&deg;F'+'</li></ul>';
+				//html += '<ul><li>'+"Wind Speed"+'</li>'+'<li>'+wind.chill+'</li></ul>';
 				
 				$("#weather").html(html);
 				$("#weather2").html(html);
