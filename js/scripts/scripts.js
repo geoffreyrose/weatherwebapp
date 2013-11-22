@@ -16,6 +16,7 @@ if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi)
 			zipcode: zip,
 			unit: 'f',
 			location: cLoc,
+			woeid: cLoc,
 			success: function(weather) {
 				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
 				html += '<p>'+'<span class="weather-'+weather.code+'" >'+'</span>'+'</p>';
