@@ -16,7 +16,7 @@
 		simpleWeather: function(options){
 			options = $.extend({
 				zipcode: '',
-				woeid: '2357536',
+				woeid: '',
 				location: '',
 				unit: 'f',
 				success: function(weather){},
