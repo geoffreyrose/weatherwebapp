@@ -52,6 +52,7 @@ p span {
 	width: 50%;
 	line-height: 1.6em;
 	cursor: pointer;
+	color: #08446D;
 }
 
 .c-temp {
@@ -63,8 +64,8 @@ p span {
 	text-transform: uppercase;
 }
 
-.current-deg {
-	color: #08446D;
+.c-f li.current-deg {
+	color: #fff;
 }
 
 
