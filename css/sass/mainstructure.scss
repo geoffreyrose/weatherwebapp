@@ -1,34 +1,12 @@
-body {
-	background: #65B8E0;
-	text-rendering: optimizeLegibility
-}
-body,html,div.containter  {
-	height: 100%;
-	min-height: 500px;
-}
-
-div.containter {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-align: center;
-	-moz-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-moz-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-  
+div.container {
+	width: 100%;
+	max-width: 450px;
+	margin: 0 auto;
 }
 
 article {
-	padding: 1em 3.5%;
-	max-width: 400px  
+	width: 100%;
+	padding: 1em;
 
 }
 
@@ -40,179 +18,166 @@ aside {
 	
 }
 
-p.homeicon {
-	margin: -2em 0 -1em;
-}
-
-p span {
-	margin: -.1em 0;	
-}
-.changeloc {
-	display: block;
-	text-align: center;
-	font-family: 'SourceSansProLightItalic';
-	font-size: 1em;
-	float: left;
-	margin: 0em 0 0 0;
-	cursor: pointer;
-	width: 45%;
-}
-.c-f {
-	width: 35%;
-	margin: 0;
-	display: none;
-	float: right;
-}
-
-.c-f li {
-	float: left;
-	font-size: 1em;
-	width: 50%;
-	line-height: 1.6em;
-	cursor: pointer;
-	color: #08446D;
-}
-
-.c-temp {
-	display: none;
-	
-}
-
-.cC {
-	text-transform: uppercase;
-}
-
-.c-f li.current-deg {
-	color: #fff;
+body {
+	background: $maincolor1;
 }
 
 
-input, #button {
-	width: 90%;
-	
-}
+form {
+	margin: 0 0 1em;
+	input {
+		width: 100%;
+		padding: .5em .25em;
+		font-size: 2em;
+		border: 2px solid $maincolor1;
+		border-radius: 4px;
+		@include trans(all,.125s);
+		outline: none;
+		text-align: center;
+		font-family: 'SourceSansProLight';
 
-img {
-	margin: 0 auto;
-	
-}
-input {
-	margin:  0 0 .5em 0;
-	border: none;
-	background: #eee;
-	padding: .5em 5%; 
-	font-family: 'SourceSansProLight';
-	font-size: 2em;
-	text-align: center;
-}
+		&:focus {
+			border: 2px solid $maincolor2;
+		}
+	}
 
-input.zip {
-	margin:  0 0 0 0;
-}
-
-#button {
-	border: none;
-	background: #08446D;
-	color: #fff;
-	padding: 1em 5%; 
-	display: block;
-	text-align: center;
-	font-family: 'SourceSansProLight';
-	margin: 0 0 1em 0;
-	cursor: pointer;
-}
-ul {
-	margin: 0 0 .5em 0;
-	float: left;
-	width: 100%;
-}
-
-ul li {
-	font-family: 'SourceSansProLight';
-	font-size: 3.0em;
-	display: block;
-	width: 50%;
-	float: left;
-	text-align: center;
-	color: #fff;
-	margin: .1em 0 .25em 0;
-}
-
-hr {
-	display: block;
-	height: 3px;
-	background: #08446D;
-	border: 0px ;
-	width: 100%;
-}
-
-hr.half1, hr.half2 {
-	display: block;
-	height: 3px;
-	background: #08446D;
-	border: 0px ;
-	position: absolute;
-	width: 45%;
-}
-
-hr.half1 {
-	left: 0;
-}
-
-hr.half2 {
-	right: 0;
-}
-
-span.or {
-	width: 100%;
-	text-align: center;
-	display: block;
-	position: absolute;
-	font-family: 'SourceSansProLightItalic';
-}
-
-section.middle-break {
-	position: relative;
-	margin: 1em 0;
-	height: 1em;
-}
-
-
-.ios {
-	display: none;
-}
-
-
-ul.weatherforcast {
-
-	li {
-		width: 27%;
+	button {
+		width: 100%;
+		padding: 1em 0;
 		font-size: 1.1em;
-		color: #000;
-		text-align: right;
-		margin: .3em 3% .3em 3%
+		background: $maincolor2;
+		border: none;
+		color: #fff;
+		border-radius: 4px;
+		margin: .75em 0 0;
+		font-family: 'SourceSansProLight';
 	}
-
-	li:nth-of-type(3) {
-		text-align: left;
-	} 
-	
 }
 
-ul.sun {
+.middle-break {
+	margin: .25em 0;
+	@include cf;
+	hr {
+		width: 42%;
+		height: 3px;
+		border: none;
+		background: $maincolor2;
+		float: left;
 
-	li {
-		width: 20%;
-		font-size: 1.1em;
-		color: #000;
+	}
+
+	span {
+		width: 16%;
+		display: block;
+		text-align: center;
+		float: left;
+
+	}
+
+	.half1 {
+		
+	}
+
+	.half2 {
+		
+	}
+}
+
+p.ios {
+	display: none;
+}
+
+.weather {
+	display: none;
+}
+
+.weather-controls {
+	display: none;
+	@include cf;
+	margin: .75em 0 0;
+	p {
+		float: left;
+	}
+	ul {
+		float: right;
 		text-align: right;
-		margin: .3em 3% .3em 3%
+		li {
+			font-family: 'SourceSansProSemiBold';
+			float: left;
+			padding: 0 0em 0 2em;
+
+		}
+	}
+}
+
+.current-weather {
+	background: $maincolor2;
+	padding: .5em;
+	border-radius: 4px;
+	color: #fff;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 0 .5em;
+	span {
+		padding: 0 1em;
 	}
 
-	li:nth-of-type(2n) {
-		text-align: left;
-		margin: .3em 0;
-	}
+}
 
-	
+.forcast {
+	@include cf;
+	ul {
+		margin: 0.25em 0 .75em;
+		float: left;
+		width: 100%;
+		li {
+			width: 50%;
+			float: left;
+			font-family: 'SourceSansProSemiBold';
+		}
+	}
+}
+
+.celsius {
+	display: none;
+}
+
+.weather-icon {
+	margin: -1.5em 0 2em;
+}
+
+.sunrise {
+	background: #FF2763;
+	padding: .5em;
+	border-radius: 4px;
+	color: #fff;
+	text-align: center;
+	margin: 0 0 .5em;
+	@include cf;
+	ul {
+		width: 50%;
+		float: left;
+
+		li {
+			margin: 0 0 .25em;
+			&.time {
+				font-family: 'SourceSansProSemiBold';
+			}
+		}
+	}
+}
+@media screen and (min-width: $i4) {
+
+}
+
+@media screen and (min-width: $v6) {
+
+}
+
+@media screen and (min-width: $v8) {
+
+}
+
+@media screen and (min-width: $v10) {
+
 }

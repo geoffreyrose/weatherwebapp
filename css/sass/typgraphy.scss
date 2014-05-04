@@ -1,28 +1,23 @@
-body {
-	font-family: 'SourceSansProRegular';
-}
-
 h1, h2, h3, h4, h5, h6 { 
 
 }
 
 h1 {
-	font-family: 'SourceSansProLight';
-	font-size: 3.0em;
-	color: #08446D;
+	font-family: 'SourceSansProSemibold';
+	font-size: 2em;
 	text-align: center;
+	color: $maincolor2;
+	margin: .5em 0 0;
 }
 
 h2 {
-	font-family: 'SourceSansProBlack';
-	font-size: 2.3em;
+	font-family: 'SourceSansProLight';
 }
 
 h3 {
 	font-family: 'SourceSansProLight';
-	font-size: 2.0em;
-	text-align: center;
-	color: #08446D;
+	color: #000;
+	font-size: 1.5em;
 }
 
 h4 {
@@ -38,11 +33,33 @@ h6 {
 }
 
 p {
-	line-height: 1.6em;
-	font-size: 1.25em;
 	font-family: 'SourceSansProLight';
+	font-size: 1.1em;
+	line-height: 1.25em;
+	margin: 0 0 .75em;
+
 }
 
-p.center {
-	text-align: center;
+pre {
+
+	code {
+	
+	}
+}
+
+
+@media screen and (min-width: $i4) {
+
+}
+
+@media screen and (min-width: $v6) {
+
+}
+
+@media screen and (min-width: $v8) {
+
+}
+
+@media screen and (min-width: $v10) {
+
 }
