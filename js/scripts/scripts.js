@@ -60,5 +60,14 @@ $(document).ready(function() {
 		$('.weather, .weather-controls').hide();
 	});
 
+	$('.f-deg').on('click', function(){
+		$('.celsius').hide();
+		$('.fahrenheit').show();
+	});
+	$('.c-deg').on('click', function(){
+		$('.fahrenheit').hide();
+		$('.celsius').show();
+	});
+
 	
 });

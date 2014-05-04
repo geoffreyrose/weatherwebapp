@@ -71,6 +71,7 @@ form {
 		display: block;
 		text-align: center;
 		float: left;
+		font-family: 'SourceSansProLight';
 
 	}
 
@@ -97,6 +98,7 @@ p.ios {
 	margin: .75em 0 0;
 	p {
 		float: left;
+		cursor: pointer;
 	}
 	ul {
 		float: right;
@@ -105,6 +107,7 @@ p.ios {
 			font-family: 'SourceSansProSemiBold';
 			float: left;
 			padding: 0 0em 0 2em;
+			cursor: pointer;
 
 		}
 	}
@@ -143,7 +146,7 @@ p.ios {
 }
 
 .weather-icon {
-	margin: -1.5em 0 2em;
+	margin: -0.5em 0 1.5em;
 }
 
 .sunrise {
@@ -165,6 +168,10 @@ p.ios {
 			}
 		}
 	}
+}
+
+.c-deg,.f-deg, {
+	
 }
 @media screen and (min-width: $i4) {
 
