@@ -2,7 +2,7 @@ Weather app that uses [Simple Weather](http://simpleweatherjs.com/)
 
 ###Current Location 
 
-Use your current location by default if your broader supports html5 geo location. 
+Use your current location by default if your broswer supports html5 geo location. 
 
 ###Query String
 
