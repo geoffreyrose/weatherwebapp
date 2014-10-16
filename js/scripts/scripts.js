@@ -20,22 +20,24 @@ function loadWeather(zip,location, woeid) {
 			location: location,
 			woeid: woeid,
 			success: function(weather) {
-				html = '<h1>'+weather.city+', '+weather.region+'</h1>';
-				html += '<p class="weather-icon"><span class="weather-'+weather.code+'"></span></p>';
-				html += '<h2 class="current-weather">'+weather.currently+'<span class="fahrenheit"> '+weather.temp+'&deg;F</span><span class="celsius"> '+weather.tempAlt+'&deg;C</span></h2>';
-
-				//Fahrenheit  
-				html += '<section class="forcast fahrenheit"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.high+'&deg;F</li><li>Low '+weather.low+'&deg;F</li></ul>';
-				html += '<h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.tomorrow.high+'&deg;F</li><li>Low '+weather.tomorrow.low+'&deg;F</li></ul></section>';
-
-				//Celsius    
-				html += '<section class="forcast celsius"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.highAlt+'&deg;C</li><li>Low '+weather.lowAlt+'&deg;C</li></ul>';
-				html += '<h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.tomorrow.highAlt+'&deg;C</li><li>Low '+weather.tomorrow.lowAlt+'&deg;C</li></ul></section>';
+				var city = '<h1>'+weather.city+', '+weather.region+'</h1>';
+				var weatherIcon = '<p class="weather-icon"><span class="weather-'+weather.code+'"></span></p>';
+				var locationDeatails = city + weatherIcon;
+				var currentWeather = '<h2 class="current-weather">'+weather.currently+'<span class="fahrenheit"> '+weather.temp+'&deg;F</span><span class="celsius"> '+weather.alt.temp+'&deg;C</span></h2>';
+				var forcast = '<section class="forcast fahrenheit"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.forecast[0].high+'&deg;F</li><li>Low '+weather.forecast[0].low+'&deg;F</li></ul><h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.forecast[1].high+'&deg;F</li><li>Low '+weather.forecast[1].low+'&deg;F</li></ul></section><section class="forcast celsius"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.forecast[0].alt.high+'&deg;C</li><li>Low '+weather.forecast[0].alt.low+'&deg;C</li></ul><h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.forecast[1].alt.high+'&deg;C</li><li>Low '+weather.forecast[1].alt.low+'&deg;C</li></ul></section>';
 
 				//sunrise
-				html += '<section class="sunrise"><ul><li><h3>Sunrise</h3></li><li class="time">'+weather.sunrise+'</li></ul><ul><li><h3>Sunset</h3></li><li class="time">'+weather.sunset+'</li></ul></section>';
-				
-				$('.weather').html(html);
+				var sunInfo = '<section class="sunrise"><ul><li><h3>Sunrise</h3></li><li class="time">'+weather.sunrise+'</li></ul><ul><li><h3>Sunset</h3></li><li class="time">'+weather.sunset+'</li></ul></section>';
+				var fiveday = '<ul>';
+
+				for(var i = 0;i <= 4;i++){fiveday += '<li><span class="weekday">'+weather.forecast[i].day+'</span><span class="weather-icon weather-'+weather.forecast[i].code+'"></span><span><span class="fahrenheit">'+weather.forecast[i].high+'&deg;F</span>'+'<span class="celsius">'+weather.forecast[i].alt.high+'&deg;C</span>'+'</span><span><span class="fahrenheit">'+weather.forecast[i].low+'&deg;F</span>'+'<span class="celsius">'+weather.forecast[i].alt.low+'&deg;C</span>'+'</span></li>';}
+				fiveday += '</ul>';
+
+				$('.weather .location').html(locationDeatails);
+				$('.weather .current-weather').html(currentWeather);
+				$('.weather .forcast').html(forcast);
+				$('.weather .sunInfo').html(sunInfo);
+				$('.weather .fiveday').html(fiveday);
 			},
 			
 			error: function(error) {
@@ -46,7 +48,9 @@ function loadWeather(zip,location, woeid) {
 
 $(document).ready(function() {
 	var zip = urlParams.zip;
+	
 	var location = urlParams.city;
+	
 	// var position = navigator.geolocation.getCurrentPosition;
 	// var woeid = position.coords.latitude;
 	// var currentLocation = position.coords.longitude;
@@ -57,7 +61,8 @@ $(document).ready(function() {
 	   	$('p.ios').show();
 	}
 	if ("geolocation" in navigator) {
-		$('.current-location').show(); 
+		$('.current-location').show();
+
 	} else {
 		$('.current-location').hide();
 	}
@@ -86,6 +91,10 @@ $(document).ready(function() {
 		$('.select-location').hide();
 		$('.weather, .weather-controls').show();
 		loadWeather(zip,location,'');
+	} else if ("geolocation" in navigator) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			loadWeather('',position.coords.latitude+','+position.coords.longitude);
+		});
 	}
 
 	$('.weather-controls .change').on('click', function(){
@@ -102,5 +111,26 @@ $(document).ready(function() {
 		$('.celsius').show();
 	});
 
-	
+
+	$("#owl-example").owlCarousel({
+ 
+	    // Most important owl features
+	    items : 1,
+	    itemsCustom : false,
+	    itemsDesktop : [1199,1],
+	    itemsDesktopSmall : [980,1],
+	    itemsTablet: [768,1],
+	    itemsTabletSmall: false,
+	    itemsMobile : [479,1],
+	    singleItem : false,
+	    itemsScaleUp : false,
+	 
+	    //Basic Speeds
+	    slideSpeed : 200,
+	    paginationSpeed : 800,
+	    rewindSpeed : 1000,
+	 
+	});
+
+
 });
