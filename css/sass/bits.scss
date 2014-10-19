@@ -1,7 +1,7 @@
 //////////////////////////// Variables ////////////////////////////
 
 // Variables for Media Queries  
-$i4: 540px;
+$i4: 640px;
 $v6: 800px;
 $v8: 1000px;
 $v10: 1200px;
@@ -69,6 +69,13 @@ $maincolor2: #08446D;
 	-moz-align-self: $alignself;
 	-ms-align-self: $alignself;
 	align-self: $alignself;
+}
+
+@mixin align-item($alignitem) {
+	-webkit-align-items: $alignitem;
+	-moz-align-items: $alignitem;
+	-ms-align-items: $alignitem;
+	align-items: $alignitem;
 }
 
 

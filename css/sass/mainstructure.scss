@@ -1,3 +1,16 @@
+html {
+	height: 100%;
+}
+
+body {
+	@include flexbox();
+	@include align-item(center);
+	@include justify(center);
+	//display: flex;
+	//align-items: center;
+	//justify-content: center;
+	height: 100%;
+}
 div.container {
 	width: 100%;
 	max-width: 450px;
@@ -9,6 +22,7 @@ article {
 	padding: 1em;
 
 }
+
 
 section {
 	
@@ -146,7 +160,7 @@ div.current-weather {
 }
 
 .weather-icon {
-	margin: -0.5em 0 1em;
+	margin: 0em 0 1em;
 }
 
 .sunrise {
@@ -210,7 +224,15 @@ div.current-weather {
 	}
 }
 @media screen and (min-width: $i4) {
-
+	body {
+		@include flexbox();
+		@include align-item(center);
+		@include justify(center);
+		//display: flex;
+		//align-items: center;
+		//justify-content: center;
+		height: 100%;
+	}
 }
 
 @media screen and (min-width: $v6) {
