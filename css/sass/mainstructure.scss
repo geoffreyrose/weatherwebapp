@@ -1,31 +1,22 @@
-html {
-	height: 100%;
-}
-
 body {
-	@include flexbox();
-	@include align-item(center);
-	@include justify(center);
-	//display: flex;
-	//align-items: center;
-	//justify-content: center;
-	height: 100%;
+
 }
 div.container {
+	
 	width: 100%;
 	max-width: 450px;
 	margin: 0 auto;
 }
 
 article {
-	width: 100%;
 	padding: 1em;
-
+	width: 100%;
+	float: left;
 }
 
-
 section {
-	
+	float: left;
+	width: 100%;
 }
 
 aside {
@@ -223,16 +214,24 @@ div.current-weather {
 		display: none;
 	}
 }
-@media screen and (min-width: $i4) {
-	body {
-		@include flexbox();
-		@include align-item(center);
-		@include justify(center);
-		//display: flex;
-		//align-items: center;
-		//justify-content: center;
-		height: 100%;
-	}
+@media screen and (min-width: $i4) and (min-height: 600px) {
+	html {
+	height: 100%;
+}
+
+body {
+	
+	//display: flex;
+	//align-items: center;
+	//justify-content: center;
+	//height: 100%;
+	padding: 1em;
+	height: 100%;
+	@include flexbox();
+	@include align-item(center);
+	@include justify(center);
+	
+}
 }
 
 @media screen and (min-width: $v6) {
