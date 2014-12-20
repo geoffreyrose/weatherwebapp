@@ -100,10 +100,11 @@ p.ios {
 .weather-controls {
 	display: none;
 	@include cf;
-	margin: .75em 0 0;
+	margin: 0em 0 0;
 	p {
 		float: left;
 		cursor: pointer;
+		margin: 0;
 	}
 	ul {
 		float: right;
@@ -151,7 +152,12 @@ div.current-weather {
 }
 
 .weather-icon {
-	margin: 0em 0 1em;
+	margin: -3em 0 0em;
+	line-height: 1em;
+
+	span {
+		line-height: 1em;
+	}
 }
 
 .sunrise {
