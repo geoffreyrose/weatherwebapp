@@ -1,0 +1,58 @@
+nav {
+	padding: 0 1em;
+	float: left;
+	width: 100%;
+	margin: -3em 0 0;
+
+	section {
+		background: $maincolor2;
+		float: left;
+		width: 100%;
+		color: #fff;
+		padding: .25em;	
+		border-radius: 4px;
+	}
+
+	.remove,.add {
+		border: 1px solid #fff;
+		padding: .25em;	
+		line-height: 1em;
+		border-radius: 4px;
+		font-family: 'SourceSansProLight';
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		z-index: 9999;
+
+		&:hover,&:active,&:focus {
+			border: 1px solid $maincolor1;
+			color: $maincolor1;
+		}
+	}
+
+	.remove {
+		float: left;
+	}
+
+	.add {
+		float: right;
+	}
+	
+}
+
+
+@media screen and (min-width: $i4) {
+
+}
+
+@media screen and (min-width: $v6) {
+
+}
+
+@media screen and (min-width: $v8) {
+
+}
+
+@media screen and (min-width: $v10) {
+
+}
