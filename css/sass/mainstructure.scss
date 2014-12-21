@@ -152,11 +152,15 @@ div.current-weather {
 }
 
 .weather-icon {
-	margin: -3em 0 0em;
+	margin: -1em 0;
 	line-height: 1em;
 
 	span {
 		line-height: 1em;
+
+		&:before {
+			line-height: 1em;
+		}
 	}
 }
 
