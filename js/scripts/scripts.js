@@ -109,6 +109,7 @@ $(document).ready(function() {
 	$('.c-deg').on('click', function(){
 		$('.fahrenheit').hide();
 		$('.celsius').show();
+		$('.current-weather .celsius').css({'display': 'inline-block'});
 	});
 
 

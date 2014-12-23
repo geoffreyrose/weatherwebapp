@@ -131,6 +131,16 @@ div.current-weather {
 		padding: 0 1em;
 	}
 
+	h2 {
+		span {
+			display: inline-block;
+
+			&.celsius {
+				display: none;
+			}
+		}
+	}
+
 }
 
 .forcast {
