@@ -1,5 +1,4 @@
 function loadWeather(zip,location, woeid) {
-	//$('.select-location').hide();
 	$('.weather, .weather-controls').show();
 	$.simpleWeather({
 			zipcode: zip,

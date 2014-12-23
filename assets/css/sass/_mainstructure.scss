@@ -8,13 +8,70 @@ div.container {
 	margin: 0 auto;
 }
 
+.login-links {
+	ul {
+		li {
+			width: 50%;
+			float: left;
+			text-align: center;
+			a {
+				color: $maincolor2;
+				text-decoration: none;
+				font-family: 'SourceSansProBold';
+
+				&:hover, &:active, &:focus {
+					border-bottom: 4px solid $maincolor2;
+					text-decoration: none;
+				}
+
+			}
+		}
+	}
+}
+
 article {
 	padding: 1em;
 	width: 100%;
 	float: left;
 
 	> .owl-wrapper-outer {
-		padding: 0 0 1em;
+		padding: 0 0 0em;
+	}
+
+	> .owl-controls {
+		display: block !important;
+		.owl-pagination {
+			.owl-page {
+				
+				&:last-of-type {
+					display: none !important;
+				}
+				&:first-of-type {
+					span {
+						background: none;
+						overflow: hidden;
+						color: #869791;
+
+						&.active {
+							opacity: 1;
+
+						}
+
+						&:before {
+							content: '\f124';
+							font-family: FontAwesome;
+						}
+					}
+					
+				}
+
+			}
+
+
+		}
+
+		
+
 	}
 }
 
@@ -62,6 +119,11 @@ form {
 		font-family: 'SourceSansProLight';
 		display: block;
 		text-align: center;
+		cursor: pointer;
+
+		&:hover, &:active, &:focus {
+			background: darken($maincolor2, 5%);
+		}
 	}
 }
 
@@ -158,11 +220,15 @@ div.current-weather {
 }
 
 .weather-icon {
-	margin: -3em 0 0em;
+	margin: -1em 0;
 	line-height: 1em;
 
 	span {
 		line-height: 1em;
+
+		&:before {
+			line-height: 1em;
+		}
 	}
 }
 

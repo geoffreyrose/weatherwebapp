@@ -24,6 +24,16 @@ nav {
 		position: relative;
 		z-index: 9999;
 
+		a {
+			color: #fff;
+			text-decoration: none;
+
+			&:hover,&:active,&:focus {
+				color: $maincolor1;
+				text-decoration: none;
+			}
+		}
+
 		&:hover,&:active,&:focus {
 			border: 1px solid $maincolor1;
 			color: $maincolor1;

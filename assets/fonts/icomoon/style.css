@@ -36,7 +36,7 @@ you can use the generic selector below, but it's slower:
 	text-transform: none;
 	line-height: .75em;
 	-webkit-font-smoothing: antialiased;
-	font-size: 12em;
+	font-size: 11em;
 	text-align: center;
 	display: block;
 	color: #fff;

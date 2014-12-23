@@ -38,64 +38,31 @@
 	<body>
 		<div class="container">
 			<article class="weather-locations">
-				<div>
-					<section class="weather">
-							<div class="location">
-							</div>
-							<div class="current-weather">
-							</div>
-						<div class="weather-details">	
-							<div class="section1">	
-								<div class="forcast">
-								</div>
-							</div>
-							<div class="fiveday">
-							</div>
-						</div>
-						<div class="sunInfo">
-						</div>
-					</section>
-				</div>
-				
-				<div>
-					<section class="select-location">
-						
-						<p class="homeicon"><span class="weather-32"></span></p>
+				<section class="select-location">
 					
-						<form class="new-location" method="get">
-							<input pattern="\d*" name="zip" value="" class="zip" type="text" placeholder="Enter Zip Code">
-							<section class="middle-break">
-								<hr class="half1" /> <span>OR</span> <hr class="half2" />
-							</section>
-							<input name="city" class="cloc" value="" type="text" placeholder="Enter City, State">
-							
-							<!-- <button type="submit">Find My Temperature</button> -->
-							<span class="button">Add Location</span>
-						</form>
+					<p class="homeicon"><span class="weather-32"></span></p>
+				
+					<form class="new-location" method="get">
+						<input pattern="\d*" name="zip" value="" class="zip" type="text" placeholder="Enter Zip Code">
+						<section class="middle-break">
+							<hr class="half1" /> <span>OR</span> <hr class="half2" />
+						</section>
+						<input name="city" class="cloc" value="" type="text" placeholder="Enter City, State">
+						
+						<button type="submit">Add Location</button>
 
-						<div class="login-links">
-							<ul>
-								<li><a href="/register.php">Register</a></li>
-								<li><a href="/login.php">Login</a></li>
-							</ul>
-						</div>
-					</section>
-				</div>
-			</article>
-
-			<nav>
-				<section>
-					<span class="remove">Remove</span>
-					<span class="add">Add</span>
+					<div class="login-links">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/login.php">Login</a></li>
+						</ul>
+					</div>
 				</section>
-			</nav>
+			</article>
 		</div>
 
 		<!-- Your JS Files Below -->
 		<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/assets/owl-carousel/owl.carousel.min.js"></script>
-		<script type="text/javascript" src="/assets/js/jquery.simpleWeather-min.js"></script>
-		<script type="text/javascript" src="/assets/js/scripts-min.js"></script>
 	</body>
 	
 </html>
