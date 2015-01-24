@@ -204,8 +204,11 @@ div.current-weather {
 }
 
 .fiveday {
+	float: left;
+	width: 100%;
 	ul {
 		width: 100%;
+		float: left;
 		li {
 			width: 17.5%;
 			float: left;
