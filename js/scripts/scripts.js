@@ -46,6 +46,23 @@ function loadWeather(zip,location, woeid) {
 		});
 }
 
+function getGeo(){
+	var latitude = '';
+	var longitude = '';
+
+	$.getScript('//www.google.com/jsapi',function(){
+		cache = {
+			coords : {
+				"latitude": google.loader.ClientLocation.latitude, 
+				"longitude": google.loader.ClientLocation.longitude
+			}
+		};
+
+		var latitude = cache.coords.latitude;
+		var longitude = cache.coords.longitude;
+	});
+}
+
 $(document).ready(function() {
 	var zip = urlParams.zip;
 	
@@ -67,34 +84,19 @@ $(document).ready(function() {
 		$('.current-location').hide();
 	}
 
-	// $('.current-location').on('click', function() {
-	// 	navigator.geolocation.getCurrentPosition(function(position) {
-	// 	loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-	// 	});
-	// });
 
 	$('.current-location').on('click', function() {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-		});
+		getGeo();
+		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates
 	});
-
-
-	// $('.select-location').hide();
-	// $('.weather, .weather-controls').show();
-
-	// navigator.geolocation.getCurrentPosition(function(position) {
-	// 	loadWeather('',position.coords.latitude+','+position.coords.longitude);
-	// });
 
 	if( zip || location ) {
 		$('.select-location').hide();
 		$('.weather, .weather-controls').show();
 		loadWeather(zip,location,'');
 	} else if ("geolocation" in navigator) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			loadWeather('',position.coords.latitude+','+position.coords.longitude);
-		});
+		getGeo();
+		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates
 	}
 
 	$('.weather-controls .change').on('click', function(){
