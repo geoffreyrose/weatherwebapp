@@ -60,6 +60,8 @@ function getGeo(){
 
 		var latitude = cache.coords.latitude;
 		var longitude = cache.coords.longitude;
+
+		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates
 	});
 }
 
@@ -87,7 +89,6 @@ $(document).ready(function() {
 
 	$('.current-location').on('click', function() {
 		getGeo();
-		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates
 	});
 
 	if( zip || location ) {
@@ -96,7 +97,6 @@ $(document).ready(function() {
 		loadWeather(zip,location,'');
 	} else if ("geolocation" in navigator) {
 		getGeo();
-		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates
 	}
 
 	$('.weather-controls .change').on('click', function(){
