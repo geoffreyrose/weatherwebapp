@@ -47,21 +47,25 @@ function loadWeather(zip,location, woeid) {
 }
 
 function getGeo(){
-	$.getScript('//www.google.com/jsapi',function(){
-		cache = {
-			coords : {
-				"latitude": google.loader.ClientLocation.latitude, 
-				"longitude": google.loader.ClientLocation.longitude
-			}
-		};
+	// $.getScript('//www.google.com/jsapi',function(){
+	// 	cache = {
+	// 		coords : {
+	// 			"latitude": google.loader.ClientLocation.latitude, 
+	// 			"longitude": google.loader.ClientLocation.longitude
+	// 		}
+	// 	};
 
-		latitude = cache.coords.latitude;
-		longitude = cache.coords.longitude;
+	// 	latitude = cache.coords.latitude;
+	// 	longitude = cache.coords.longitude;
 
-		setTimeout(function(){
-			loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates	
-		}, 250);
+	// 	setTimeout(function(){
+	// 		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates	
+	// 	}, 250);
 		
+	// });
+
+	navigator.geolocation.getCurrentPosition(function(position) {
+		loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
 	});
 }
 
