@@ -67,7 +67,6 @@ function getGeo(){
 
 $(document).ready(function() {
 	var zip = urlParams.zip;
-	
 	var location = urlParams.city;
 	
 	// var position = navigator.geolocation.getCurrentPosition;

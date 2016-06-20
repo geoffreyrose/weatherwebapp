@@ -13,6 +13,7 @@
   $.extend({
     simpleWeather: function(options){
       options = $.extend({
+        zipcode: '',
         location: '',
         woeid: '',
         unit: 'f',
@@ -36,7 +37,7 @@
       } else if(options.woeid !== '') {
         weatherUrl += 'select * from weather.forecast where woeid=' + options.woeid + ' and u="' + options.unit + '"';
       } else if(options.zipcode !== '') {
-        weatherUrl += 'select * from weather.forecast where location in ("'+options.zipcode+'") and u="'+options.unit+'"';
+        weatherUrl += 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="places, ' + options.zipcode + '")';
       } else {
         options.error('Could not retrieve weather due to an invalid location.');
         return false;
