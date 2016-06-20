@@ -112,7 +112,7 @@ p.ios {
 		li {
 			font-family: 'SourceSansProSemiBold';
 			float: left;
-			padding: 0 0em 0 2em;
+			margin: 0 0em 0 2em;
 			cursor: pointer;
 
 		}
@@ -129,6 +129,16 @@ div.current-weather {
 	margin: 0 0 .5em;
 	span {
 		padding: 0 1em;
+	}
+
+	h2 {
+		span {
+			display: inline-block;
+
+			&.celsius {
+				display: none;
+			}
+		}
 	}
 
 }
@@ -194,8 +204,11 @@ div.current-weather {
 }
 
 .fiveday {
+	float: left;
+	width: 100%;
 	ul {
 		width: 100%;
+		float: left;
 		li {
 			width: 17.5%;
 			float: left;

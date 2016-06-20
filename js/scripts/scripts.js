@@ -46,6 +46,25 @@ function loadWeather(zip,location, woeid) {
 		});
 }
 
+function getGeo(){
+	$.getScript('//www.google.com/jsapi',function(){
+		cache = {
+			coords : {
+				"latitude": google.loader.ClientLocation.latitude, 
+				"longitude": google.loader.ClientLocation.longitude
+			}
+		};
+
+		latitude = cache.coords.latitude;
+		longitude = cache.coords.longitude;
+
+		setTimeout(function(){
+			loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates	
+		}, 250);
+		
+	});
+}
+
 $(document).ready(function() {
 	var zip = urlParams.zip;
 	
@@ -67,34 +86,17 @@ $(document).ready(function() {
 		$('.current-location').hide();
 	}
 
-	// $('.current-location').on('click', function() {
-	// 	navigator.geolocation.getCurrentPosition(function(position) {
-	// 	loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-	// 	});
-	// });
 
 	$('.current-location').on('click', function() {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-		});
+		getGeo();
 	});
-
-
-	// $('.select-location').hide();
-	// $('.weather, .weather-controls').show();
-
-	// navigator.geolocation.getCurrentPosition(function(position) {
-	// 	loadWeather('',position.coords.latitude+','+position.coords.longitude);
-	// });
 
 	if( zip || location ) {
 		$('.select-location').hide();
 		$('.weather, .weather-controls').show();
 		loadWeather(zip,location,'');
-	} else if ("geolocation" in navigator) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			loadWeather('',position.coords.latitude+','+position.coords.longitude);
-		});
+	} else  {
+		getGeo();
 	}
 
 	$('.weather-controls .change').on('click', function(){
@@ -109,6 +111,7 @@ $(document).ready(function() {
 	$('.c-deg').on('click', function(){
 		$('.fahrenheit').hide();
 		$('.celsius').show();
+		$('.current-weather .celsius').css({'display': 'inline-block'});
 	});
 
 
