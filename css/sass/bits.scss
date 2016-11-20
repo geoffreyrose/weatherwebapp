@@ -12,7 +12,7 @@ $maincolor2: #08446D;
 
 
 //////////////////////////// Mixins ////////////////////////////
-@mixin trans ($prop, $time) {
+@mixin trans ($prop:all, $time:.125s) {
 	-webkit-transition: $prop $time;
 	-moz-transition: $prop $time;
 	-ms-transition: $prop $time;

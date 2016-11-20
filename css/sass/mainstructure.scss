@@ -106,13 +106,19 @@ p.ios {
 		cursor: pointer;
 		margin: 0;
 	}
+
+	label {
+		cursor: pointer;
+	}
+
 	ul {
+		cursor: pointer;
 		float: right;
 		text-align: right;
 		li {
 			font-family: 'SourceSansProSemiBold';
 			float: left;
-			margin: 0 0em 0 2em;
+			margin: 0 0 0 .5em;
 			cursor: pointer;
 
 		}
@@ -235,6 +241,49 @@ div.current-weather {
 	}
 	.celsius {
 		display: none;
+	}
+}
+
+.switch {
+	cursor: pointer;
+	margin-top: -.125rem;
+	//padding: 1em;
+	input {
+		display: none;
+		&:checked {
+			~ label {
+				background: #0f0;
+				&:before {
+					background: #fff;	
+					left: 1.125em;
+				}
+			}
+		}
+	}
+
+	label {
+		background: #ddd;
+		//border: 1px solid #444;
+		height: 1.25em;
+		width: 2.25em;
+		display: block;
+		position: relative;
+		@include trans;
+		border-radius: 100em;
+
+		&:before {
+			content: '';
+			@include trans;
+			background: #fff;
+			height: 1em;
+			width: 1em;
+			display: block;
+			position: absolute;
+			top: 0.125em;
+			left: 0.125em;
+			border-radius: 100%;
+			box-shadow: 0 0 .125em #bbb;
+		}	
 	}
 }
 @media screen and (min-width: $i4) and (min-height: 600px) {

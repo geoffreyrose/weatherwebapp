@@ -1,3 +1,14 @@
+function weatherUnit() {
+	if($('[name="weather-unit"]').is(':checked')) {
+		$('.celsius').hide();
+	 	$('.fahrenheit').show();
+	} else {
+		$('.fahrenheit').hide();
+		$('.celsius').show();
+		$('.current-weather .celsius').css({'display': 'inline-block'});
+	}
+}
+
 var urlParams;
 (window.onpopstate = function () {
     var match,
@@ -27,7 +38,27 @@ function loadWeather(zip,location, woeid) {
 				var forcast = '<section class="forcast fahrenheit"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.forecast[0].high+'&deg;F</li><li>Low '+weather.forecast[0].low+'&deg;F</li></ul><h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.forecast[1].high+'&deg;F</li><li>Low '+weather.forecast[1].low+'&deg;F</li></ul></section><section class="forcast celsius"><h3>Today</h3><ul class="weatherforcast"><li>High '+weather.forecast[0].alt.high+'&deg;C</li><li>Low '+weather.forecast[0].alt.low+'&deg;C</li></ul><h3>Tomorrow</h3><ul class="weatherforcast"><li>High '+weather.forecast[1].alt.high+'&deg;C</li><li>Low '+weather.forecast[1].alt.low+'&deg;C</li></ul></section>';
 
 				//sunrise
-				var sunInfo = '<section class="sunrise"><ul><li><h3>Sunrise</h3></li><li class="time">'+weather.sunrise+'</li></ul><ul><li><h3>Sunset</h3></li><li class="time">'+weather.sunset+'</li></ul></section>';
+				var sunrise = weather.sunrise;
+				var start_pos = sunrise.indexOf(':') + 1;
+				var end_pos = sunrise.indexOf(' ',start_pos);
+				var text_to_get = sunrise.substring(start_pos,end_pos);
+				var sunriseLength = text_to_get;
+
+				if(sunriseLength.length <= 1) {
+					sunrise = sunrise.slice(0,2) + '0' + sunrise.slice(2);
+				}
+
+				var sunset = weather.sunset;
+				start_pos = sunset.indexOf(':') + 1;
+				end_pos = sunset.indexOf(' ',start_pos);
+				text_to_get = sunset.substring(start_pos,end_pos);
+				var sunsetLength = text_to_get;
+
+				if(sunsetLength.length <= 1) {
+					sunset = sunset.slice(0,2) + '0' + sunset.slice(2);
+				}
+
+				var sunInfo = '<section class="sunrise"><ul><li><h3>Sunrise</h3></li><li class="time">'+sunrise+'</li></ul><ul><li><h3>Sunset</h3></li><li class="time">'+sunset+'</li></ul></section>';
 				var fiveday = '<ul>';
 
 				for(var i = 0;i <= 4;i++){fiveday += '<li><span class="weekday">'+weather.forecast[i].day+'</span><span class="weather-icon weather-'+weather.forecast[i].code+'"></span><span><span class="fahrenheit">'+weather.forecast[i].high+'&deg;F</span>'+'<span class="celsius">'+weather.forecast[i].alt.high+'&deg;C</span>'+'</span><span><span class="fahrenheit">'+weather.forecast[i].low+'&deg;F</span>'+'<span class="celsius">'+weather.forecast[i].alt.low+'&deg;C</span>'+'</span></li>';}
@@ -47,23 +78,6 @@ function loadWeather(zip,location, woeid) {
 }
 
 function getGeo(){
-	// $.getScript('//www.google.com/jsapi',function(){
-	// 	cache = {
-	// 		coords : {
-	// 			"latitude": google.loader.ClientLocation.latitude, 
-	// 			"longitude": google.loader.ClientLocation.longitude
-	// 		}
-	// 	};
-
-	// 	latitude = cache.coords.latitude;
-	// 	longitude = cache.coords.longitude;
-
-	// 	setTimeout(function(){
-	// 		loadWeather('',latitude+','+longitude); //load weather using your lat/lng coordinates	
-	// 	}, 250);
-		
-	// });
-
 	navigator.geolocation.getCurrentPosition(function(position) {
 		loadWeather('',position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
 	});
@@ -72,12 +86,6 @@ function getGeo(){
 $(document).ready(function() {
 	var zip = urlParams.zip;
 	var location = urlParams.city;
-	
-	// var position = navigator.geolocation.getCurrentPosition;
-	// var woeid = position.coords.latitude;
-	// var currentLocation = position.coords.longitude;
-	
-	// var currentLocation = position.coords.latitude+','+position.coords.longitude;
 
 	if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
 	   	$('p.ios').show();
@@ -107,14 +115,10 @@ $(document).ready(function() {
 		$('.weather, .weather-controls').hide();
 	});
 
-	$('.f-deg').on('click', function(){
-		$('.celsius').hide();
-		$('.fahrenheit').show();
-	});
-	$('.c-deg').on('click', function(){
-		$('.fahrenheit').hide();
-		$('.celsius').show();
-		$('.current-weather .celsius').css({'display': 'inline-block'});
+
+	weatherUnit();
+	$('[name="weather-unit"]').on('change', function(){
+		weatherUnit();
 	});
 
 
@@ -137,6 +141,5 @@ $(document).ready(function() {
 	    rewindSpeed : 1000,
 	 
 	});
-
 
 });
